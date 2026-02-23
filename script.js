@@ -94,44 +94,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ===========================
-    // Scroll Animation for History (Pinned)
+    // Timeline Progress Fallback
     // ===========================
-    const storySection = document.querySelector('.story-pin-section');
-    const storyScrollWrapper = document.querySelector('.story-scroll-wrapper');
-    const storyCards = document.querySelectorAll('.story-card');
-    const progressFill = document.querySelector('.progress-fill');
+    const timeline = document.querySelector('.timeline');
+    if (timeline) {
+        const updateTimelineProgress = () => {
+            const rect = timeline.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
 
-    if (storySection && storyScrollWrapper) {
-        window.addEventListener('scroll', () => {
-            const sectionRect = storySection.getBoundingClientRect();
-            const wrapperRect = storyScrollWrapper.getBoundingClientRect();
+            // Calculate progress: reaching 100% when the bottom of the timeline hits the middle of the screen
+            const totalHeight = rect.height;
+            const progress = Math.max(0, Math.min(100, ((-rect.top + viewHeight * 0.7) / totalHeight) * 100));
 
-            // Total distance to scroll within the wrapper
-            const totalDistance = storyScrollWrapper.offsetHeight - window.innerHeight;
-            // How much we've scrolled inside the wrapper
-            const scrolled = -wrapperRect.top;
+            timeline.style.setProperty('--timeline-progress', `${progress}%`);
+        };
 
-            if (scrolled >= 0 && scrolled <= totalDistance) {
-                const scrollPercent = scrolled / totalDistance;
-                const totalCards = storyCards.length;
-
-                // Calculate which card should be active
-                const cardIndex = Math.floor(scrollPercent * totalCards);
-                const activeIndex = Math.min(cardIndex, totalCards - 1);
-
-                storyCards.forEach((card, idx) => {
-                    if (idx === activeIndex) {
-                        card.classList.add('active');
-                    } else {
-                        card.classList.remove('active');
-                    }
-                });
-
-                if (progressFill) {
-                    progressFill.style.width = `${scrollPercent * 100}%`;
-                }
-            }
-        });
+        window.addEventListener('scroll', updateTimelineProgress);
+        updateTimelineProgress(); // Initial call
     }
 
 
