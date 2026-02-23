@@ -96,8 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ===========================
-    // Timeline Progress Fallback
+    // Modern Horizontal Gallery (Scroll Fallback)
     // ===========================
+    // Modern Horizontal Gallery (Auto-Scroll)
+    // ===========================
+    // Handled by CSS animations.
     const timeline = document.querySelector('.timeline');
     if (timeline) {
         const updateTimelineProgress = () => {
