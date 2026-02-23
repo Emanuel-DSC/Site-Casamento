@@ -748,24 +748,168 @@ select {
     color: var(--text-muted);
 }
 
-/* === Gallery Section === */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+/* === Gallery Section (Vertical Strips Animation) === */
+.gallery-section-vertical {
+    background: var(--bg-primary);
+    overflow: hidden;
+    position: relative;
+    padding: 100px 0;
 }
 
-.gallery-item img {
+.gallery-header-container-vertical {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.gallery-vertical {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform var(--transition-normal);
+    overflow: hidden;
+    max-width: 1400px;
+    margin: auto;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.02);
+.gallery__strip__wrapper {
+    flex: 0 0 100%;
+    justify-content: flex-end;
+    background: var(--bg-primary);
+    /* Alterado para combinar com a sessão */
+    position: relative;
+    border-right: none;
+    /* Removida a linha divisória */
+    padding: 0 15px;
+    /* Adicionado respiro lateral entre as colunas */
+}
+
+@media (min-width: 500px) {
+    .gallery__strip__wrapper {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 950px) {
+    .gallery-vertical {
+        height: 100vh;
+        min-height: 800px;
+    }
+
+    .gallery__strip__wrapper {
+        flex: 0 0 25%;
+    }
+
+    .gallery__strip.one {
+        animation: 40s move-it ease alternate infinite 2s;
+        /* Ajustado para ~40s */
+        transform: translateY(2%);
+    }
+
+    .gallery__strip.three {
+        animation: 44s move-it ease alternate infinite 3s;
+        /* Ajustado para ~40s */
+        transform: translateY(2%);
+    }
+
+    .gallery__strip.two {
+        animation: 38s move-it-2 ease alternate infinite 2s;
+        /* Ajustado para ~40s */
+        transform: translateY(-50%);
+    }
+
+    .gallery__strip.four {
+        animation: 42s move-it-2 ease alternate infinite 2.5s;
+        /* Ajustado para ~40s */
+        transform: translateY(-50%);
+    }
+
+    .gallery__strip:hover {
+        animation-play-state: paused;
+    }
+}
+
+.photo {
+    position: relative;
+    text-align: right;
+    padding-bottom: 30px;
+    /* Aumentado o respiro vertical entre as fotos */
+    cursor: pointer;
+}
+
+.photo__image {
+    width: 100%;
+    /* Ocupa toda a largura da tira */
+    aspect-ratio: 1 / 1;
+    /* Proporção quadrada padrão */
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.photo__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    /* Removido o translateX para preencher o espaço */
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.photo:hover .photo__image img {
+    transform: scale(1.1);
+    /* Adicionado um zoom sutil no hover */
+}
+
+.photo__name {
+    font-family: 'Marcellus', serif;
+    text-transform: uppercase;
+    font-size: clamp(24px, 4vw, 40px);
+    letter-spacing: 2px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--text-primary);
+    margin-top: -25px;
+    transition: 0.4s ease-in-out 0.4s;
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    padding-right: 10%;
+}
+
+.photo:hover .photo__image img {
+    transform: translateX(0%);
+}
+
+.photo:hover .photo__name {
+    color: var(--text-primary);
+    -webkit-text-stroke-color: transparent;
+}
+
+@keyframes move-it {
+
+    0%,
+    90%,
+    100% {
+        transform: translateY(2%);
+    }
+
+    45% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes move-it-2 {
+
+    0%,
+    90%,
+    100% {
+        transform: translateY(-50%);
+    }
+
+    45% {
+        transform: translateY(5%);
+    }
 }
 
 /* === Wedding Party Section === */
