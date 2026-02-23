@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Site do nosso casamento — Tudo o que você precisa saber para o casamento de Emanuel & Marina em Abril de 2024 em Apopka, FL.">
+    <title>Emanuel & Marina — 20.04.2024 | Nosso Casamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Marcellus&family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="diagrama_casamento_branco.svg" alt="Logo" class="logo-image" id="logoImage">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">HOME</a></li>
+                <li><a href="#story">NOSSA HISTÓRIA</a></li>
+                <li><a href="#details">DETALHES</a></li>
+                <li><a href="#gallery">GALERIA</a></li>
+                <li><a href="#party">PADRINHOS</a></li>
+                <li><a href="#faqs">FAQ</a></li>
+                <li><a href="#presentes">PRESENTES</a></li>
+            </ul>
+            <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                CONFIRMAR PRESENÇA
+            </button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero full-hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-center-layout">
+            <div class="hero-content-center">
+                <div class="hero-badge reveal">
+                    <span>20.04.2024 — Apopka, FL</span>
+                </div>
+                <h1 class="hero-title-large reveal">
+                    Nós vamos nos <span class="accent-white">Casar!</span>
+                </h1>
+                <p class="hero-subtitle-large reveal">
+                    Bem-vindos ao site do nosso casamento! Mal podemos esperar para celebrar este dia especial
+                    com todas as nossas pessoas favoritas.
+                </p>
+                <div class="hero-actions reveal">
+                    <a href="#contact" class="btn btn-primary-white">
+                        <span>Confirmar Presença</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section (Pinned Scroll) -->
+    <section class="story-pin-section" id="story">
+        <div class="story-scroll-wrapper">
+            <div class="story-sticky-content">
+                <div class="container story-inner-container">
+                    <div class="section-header reveal">
+                        <span class="section-tag">Nossa Jornada</span>
+                        <h2 class="section-title">Nossa <span class="gradient-text">História</span></h2>
+                    </div>
+
+                    <div class="story-display">
+                        <div class="story-card active" data-index="0">
+                            <h3 class="story-date">10.07.2017</h3>
+                            <p class="story-desc">Nós nos conhecemos e nos apaixonamos</p>
+                        </div>
+                        <div class="story-card" data-index="1">
+                            <h3 class="story-date">07.07.2018</h3>
+                            <p class="story-desc">Nos mudamos para o Arizona e adotamos nossa Goosey</p>
+                        </div>
+                        <div class="story-card" data-index="2">
+                            <h3 class="story-date">12.21.2019</h3>
+                            <p class="story-desc">Proclamamos nosso amor juntos!</p>
+                        </div>
+                        <div class="story-card" data-index="3">
+                            <h3 class="story-date">08.24.2020</h3>
+                            <p class="story-desc">Aventuras... com muita pescaria</p>
+                        </div>
+                        <div class="story-card" data-index="4">
+                            <h3 class="story-date">01.24.2023</h3>
+                            <p class="story-desc">ESTAMOS NOIVOS!</p>
+                        </div>
+                        <div class="story-card" data-index="5">
+                            <h3 class="story-date">04.20.2024</h3>
+                            <p class="story-desc">O DIA DO CASAMENTO</p>
+                        </div>
+                    </div>
+
+                    <div class="story-progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Details Section -->
+    <section class="section" id="details" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Onde e Quando</span>
+                <h2 class="section-title">Os <span class="gradient-text">Detalhes</span></h2>
+            </div>
+            <div class="details-content reveal">
+                <div class="details-item">
+                    <h3>CERIMÔNIA & RECEPÇÃO</h3>
+                    <p class="details-venue">Club Lake Plantation Wedding Venue</p>
+                    <p class="details-location">Apopka, FL (30 minutos ao norte de Orlando)</p>
+                </div>
+                <div class="details-item">
+                    <h3>PROGRAMAÇÃO</h3>
+                    <p>A cerimônia começa pontualmente às 17h</p>
+                    <p>Coquetel e Recepção em seguida</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Memórias</span>
+                <h2 class="section-title">Nossa <span class="gradient-text">Galeria</span></h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=600"
+                        alt="Galeria 1">
+                </div>
+                <div class="gallery-item reveal" style="transition-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164883214c48?auto=format&fit=crop&q=80&w=600"
+                        alt="Galeria 2">
+                </div>
+                <div class="gallery-item reveal" style="transition-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=600"
+                        alt="Galeria 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Party Section -->
+    <section class="section" id="party" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Família e Amigos</span>
+                <h2 class="section-title">Madrinhas & <span class="gradient-text">Padrinhos</span></h2>
+            </div>
+            <div class="party-grid">
+                <div class="party-side reveal">
+                    <h3 class="side-title">DAMAS</h3>
+                    <div class="party-members">
+                        <div class="member-card">
+                            <img src="https://images.unsplash.com/photo-1594744803329-a584af1dd51e?auto=format&fit=crop&q=80&w=300"
+                                alt="Kaila Johanson">
+                            <div class="member-info">
+                                <strong>Kaila Johanson</strong>
+                                <span>Maid of Honor</span>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=300"
+                                alt="Emily Shryock">
+                            <div class="member-info">
+                                <strong>Emily Shryock</strong>
+                                <span>Bridesmaid</span>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=300"
+                                alt="Kyla Miranda">
+                            <div class="member-info">
+                                <strong>Kyla Miranda</strong>
+                                <span>Bridesmaid</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="party-side reveal" style="transition-delay: 0.1s;">
+                    <h3 class="side-title">CAVALHEIROS</h3>
+                    <div class="party-members">
+                        <div class="member-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300"
+                                alt="Carl CJ Johanson">
+                            <div class="member-info">
+                                <strong>Carl "CJ" Johanson</strong>
+                                <span>Best Man</span>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300"
+                                alt="Joe Roach">
+                            <div class="member-info">
+                                <strong>Joe Roach</strong>
+                                <span>Best Man</span>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=300"
+                                alt="Christopher CJ Miranda">
+                            <div class="member-info">
+                                <strong>Christopher "CJ" Miranda</strong>
+                                <span>Groomsman</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQs Section -->
+    <section class="section" id="faqs" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Dúvidas</span>
+                <h2 class="section-title">Perguntas <span class="gradient-text">Frequentes</span></h2>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-accordion-item reveal">
+                    <button class="faq-question">O QUE DEVO VESTIR? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Traje esporte fino ou social completo. Por favor, nada de jeans!</p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item reveal">
+                    <button class="faq-question">TERÁ BAR ABERTO? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>SIM! As bebidas são por nossa conta e a ressaca é por sua... prepare-se para festejar!</p>
+                    </div>
+                </div>
+                <div class="faq-accordion-item reveal">
+                    <button class="faq-question">POSSO TIRAR FOTOS? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Teremos uma "cerimônia desconectada". Depois disso, pode postar à vontade com a hashtag
+                            #JohansonInTheMoonlight!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift List Section -->
+    <section id="presentes" class="section gifts-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Presentes</span>
+                <h2 class="section-title">Lista de <span class="gradient-text">Presentes</span></h2>
+                <p class="section-description">
+                    Sua presença é o nosso maior presente. Se você deseja nos ajudar a celebrar com um presente,
+                    criamos uma lista para nossa lua de mel e nossa casa:
+                </p>
+            </div>
+
+            <div class="gifts-grid">
+
+                <div class="gift-card reveal">
+                    <div class="gift-icon">✈️</div>
+                    <h3>Fundo de Lua de Mel</h3>
+                    <p>Ajude-nos a tornar a lua de mel dos nossos sonhos realidade.</p>
+                    <div class="gift-price">R$ 200,00</div>
+                    <button class="btn btn-primary" onclick="abrirModal('Lua de Mel', '200,00')">
+                        <span>Contribuir</span>
+                    </button>
+                </div>
+
+                <div class="gift-card reveal" style="transition-delay: 0.1s;">
+                    <div class="gift-icon">🍷</div>
+                    <h3>Jantar Romântico</h3>
+                    <p>Um brinde especial à nossa nova vida juntos.</p>
+                    <div class="gift-price">R$ 150,00</div>
+                    <button class="btn btn-primary" onclick="abrirModal('Jantar Romântico', '150,00')">
+                        <span>Contribuir</span>
+                    </button>
+                </div>
+
+                <div class="gift-card reveal" style="transition-delay: 0.2s;">
+                    <div class="gift-icon">☕</div>
+                    <h3>Itens para o Novo Lar</h3>
+                    <p>Para que nossas manhãs comecem da melhor forma.</p>
+                    <div class="gift-price">R$ 100,00</div>
+                    <button class="btn btn-primary" onclick="abrirModal('Cafeteira', '100,00')">
+                        <span>Contribuir</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info reveal">
+                    <span class="section-tag">RSVP</span>
+                    <h2 class="section-title">Confirmar <span class="gradient-text">Presença</span></h2>
+                    <p class="section-description">
+                        Por favor, confirme se você poderá comparecer até 1º de Março.
+                        Mal podemos esperar para ver vocês lá!
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span>#JohansonInTheMoonlight</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome(s)</label>
+                        <input type="text" id="name" name="name" placeholder="Nome completo de todos os convidados"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attending">Você irá comparecer?</label>
+                        <select id="attending" name="attending" required>
+                            <option value="" disabled selected>Selecione uma opção</option>
+                            <option value="yes">Aceito com prazer</option>
+                            <option value="no">Recuso com pesar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem para o casal (Opcional)</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Restrições alimentares ou um recado carinhoso..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Confirmar Presença</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-text">Emanuel & <span class="accent">Marina</span></span>
+                    </div>
+                    <p>Celebrando o amor e a união em 20 de Abril de 2024. Obrigado por fazer parte da nossa história.
+                    </p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#story">História</a></li>
+                        <li><a href="#details">Detalhes</a></li>
+                        <li><a href="#party">Padrinhos</a></li>
+                        <li><a href="#presentes">Presentes</a></li>
+                        <li><a href="#contact">Confirmar Presença</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Atalhos</h4>
+                    <ul>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#faqs">Perguntas</a></li>
+                        <li><a href="#presentes">Lista Pix</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Emanuel & Marina. Todos os direitos reservados.</p>
+                <p>Feito com <span class="accent">♥</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Pix Modal -->
+    <div id="modalPix" class="modal-pix">
+        <div class="modal-content">
+            <h2 id="modalTitulo">Presentear</h2>
+            <p>Escaneie o código Pix abaixo para enviar o valor de <br><strong id="modalValor"
+                    class="gift-price"></strong></p>
+
+            <div class="qr-code-wrapper">
+                <img id="modalQrCode"
+                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SUA-CHAVE-PIX-AQUI"
+                    alt="QR Code Pix">
+            </div>
+
+            <div class="pix-key-box">
+                Chave Pix: <strong>seuemail@exemplo.com</strong>
+            </div>
+
+            <button class="btn-close-modal" onclick="fecharModal()">Fechar Janela</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
