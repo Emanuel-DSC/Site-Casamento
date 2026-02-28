@@ -29,8 +29,7 @@
                 <li><a href="#details">DETALHES</a></li>
                 <li><a href="#gallery">GALERIA</a></li>
                 <li><a href="#faqs">FAQ</a></li>
-                <li><a href="#faqs">FAQ</a></li>
-                <li><a href="#presentes">PRESENTES</a></li>
+                <li><a href="presentes.html" target="_blank">PRESENTES</a></li>
             </ul>
             <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
                 CONFIRMAR PRESENÇA
@@ -329,53 +328,7 @@
         </div>
     </section>
 
-    <!-- Gift List Section -->
-    <section id="presentes" class="section gifts-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Presentes</span>
-                <h2 class="section-title">Lista de <span class="gradient-text">Presentes</span></h2>
-                <p class="section-description">
-                    Sua presença é o nosso maior presente. Se você deseja nos ajudar a celebrar com um presente,
-                    criamos uma lista para nossa lua de mel e nossa casa:
-                </p>
-            </div>
 
-            <div class="gifts-grid">
-
-                <div class="gift-card reveal">
-                    <div class="gift-icon">✈️</div>
-                    <h3>Fundo de Lua de Mel</h3>
-                    <p>Ajude-nos a tornar a lua de mel dos nossos sonhos realidade.</p>
-                    <div class="gift-price">R$ 200,00</div>
-                    <button class="btn btn-primary" onclick="abrirModal('Lua de Mel', '200,00')">
-                        <span>Contribuir</span>
-                    </button>
-                </div>
-
-                <div class="gift-card reveal" style="transition-delay: 0.1s;">
-                    <div class="gift-icon">🍷</div>
-                    <h3>Jantar Romântico</h3>
-                    <p>Um brinde especial à nossa nova vida juntos.</p>
-                    <div class="gift-price">R$ 150,00</div>
-                    <button class="btn btn-primary" onclick="abrirModal('Jantar Romântico', '150,00')">
-                        <span>Contribuir</span>
-                    </button>
-                </div>
-
-                <div class="gift-card reveal" style="transition-delay: 0.2s;">
-                    <div class="gift-icon">☕</div>
-                    <h3>Itens para o Novo Lar</h3>
-                    <p>Para que nossas manhãs comecem da melhor forma.</p>
-                    <div class="gift-price">R$ 100,00</div>
-                    <button class="btn btn-primary" onclick="abrirModal('Cafeteira', '100,00')">
-                        <span>Contribuir</span>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact" style="background-color: var(--bg-secondary);">
@@ -442,7 +395,7 @@
                         <li><a href="#hero">Home</a></li>
                         <li><a href="#story">História</a></li>
                         <li><a href="#details">Detalhes</a></li>
-                        <li><a href="#presentes">Presentes</a></li>
+                        <li><a href="presentes.html" target="_blank">Presentes</a></li>
                         <li><a href="#contact">Confirmar Presença</a></li>
                     </ul>
                 </div>
@@ -451,7 +404,7 @@
                     <ul>
                         <li><a href="#gallery">Galeria</a></li>
                         <li><a href="#faqs">Perguntas</a></li>
-                        <li><a href="#presentes">Lista Pix</a></li>
+                        <li><a href="presentes.html" target="_blank">Lista Pix</a></li>
                     </ul>
                 </div>
                 <div class="footer-links-group">
@@ -469,26 +422,7 @@
         </div>
     </footer>
 
-    <!-- Pix Modal -->
-    <div id="modalPix" class="modal-pix">
-        <div class="modal-content">
-            <h2 id="modalTitulo">Presentear</h2>
-            <p>Escaneie o código Pix abaixo para enviar o valor de <br><strong id="modalValor"
-                    class="gift-price"></strong></p>
 
-            <div class="qr-code-wrapper">
-                <img id="modalQrCode"
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SUA-CHAVE-PIX-AQUI"
-                    alt="QR Code Pix">
-            </div>
-
-            <div class="pix-key-box">
-                Chave Pix: <strong>seuemail@exemplo.com</strong>
-            </div>
-
-            <button class="btn-close-modal" onclick="fecharModal()">Fechar Janela</button>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>

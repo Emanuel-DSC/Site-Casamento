@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes | Emanuel & Marina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Marcellus&family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --gift-accent: #B3CEE5;
+            /* Azul Serenity para Destaque Máximo (10%) */
+            --contrast-bg: #000000;
+            /* Preto para Contrastes (30%) */
+        }
+
+        body {
+            background-color: var(--bg-primary);
+        }
+
+        .gift-page-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            background: linear-gradient(to bottom, #f1f5f9, #ffffff);
+        }
+
+        .gift-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+
+        .gift-intro {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .gift-intro p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .gift-category-title {
+            font-family: 'Marcellus', serif;
+            font-size: 1.8rem;
+            margin: 60px 0 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .gift-category-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--gift-accent);
+            margin: 15px auto 0;
+        }
+
+        .gift-grid-premium {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .premium-card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--gift-accent);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .premium-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-body h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+        }
+
+        .card-body p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            padding: 0 25px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-gift {
+            background: var(--gift-accent);
+            /* Destaque Máximo */
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gift:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #555555;
+        }
+
+        /* Endereço Section */
+        .address-box {
+            background: var(--contrast-bg);
+            /* Seção de contraste (30%) */
+            color: #ffffff;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .address-box h4 {
+            font-family: 'Marcellus', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--gift-accent);
+        }
+
+        .address-box p {
+            color: #cccccc;
+        }
+
+        /* Modal Custom */
+        .gift-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-inner {
+            background: #fff;
+            max-width: 450px;
+            width: 100%;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            animation: modalIn 0.4s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .pix-key-wrapper {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pix-key-text {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .btn-copy {
+            background: var(--gift-accent);
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .pix-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--gift-accent);
+        }
+
+        @media (max-width: 768px) {
+            .gift-page-hero {
+                padding: 120px 0 60px;
+            }
+
+            .back-link {
+                top: 20px;
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Voltar ao Site
+    </a>
+
+    <header class="gift-page-hero">
+        <div class="container">
+            <span class="section-tag">Presentes</span>
+            <h1 class="hero-title-large" style="color: var(--text-primary);">Lista de <span
+                    class="gradient-text">Presentes</span></h1>
+        </div>
+    </header>
+
+    <main class="gift-container">
+        <div class="gift-intro">
+            <p>Sua presença é o nosso maior presente! Mas, se você deseja nos presentear, criamos esta lista com algumas
+                opções de cotas para nossa lua de mel e itens para o nosso novo lar. Todo valor será recebido com muito
+                carinho através do Pix.</p>
+        </div>
+
+        <!-- Lua de Mel -->
+        <h2 class="gift-category-title">Lua de Mel & Experiências</h2>
+        <div class="gift-grid-premium">
+            <!-- Item 1 -->
+            <div class="premium-card">
+                <img src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    class="card-image" alt="Jantar">
+                <div class="card-body">
+                    <h3>Jantar Romântico</h3>
+                    <p>Um brinde especial à nossa primeira viagem como casados.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price-tag">R$ 150,00</span>
+                    <button class="btn-gift" onclick="openGiftModal('Jantar Romântico', '150,00')">Presentear</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="premium-card">
+                <img src="https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    class="card-image" alt="Passeio">
+                <div class="card-body">
+                    <h3>Passeio de Barco</h3>
+                    <p>Uma tarde explorando as águas cristalinas na nossa lua de mel.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price-tag">R$ 250,00</span>
+                    <button class="btn-gift" onclick="openGiftModal('Passeio de Barco', '250,00')">Presentear</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="premium-card">
+                <img src="https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    class="card-image" alt="Hotel">
+                <div class="card-body">
+                    <h3>Cota de Hospedagem</h3>
+                    <p>Ajude-nos a garantir momentos inesquecíveis em lugares especiais.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price-tag">R$ 300,00</span>
+                    <button class="btn-gift" onclick="openGiftModal('Cota de Hospedagem', '300,00')">Presentear</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Casa Nova -->
+        <h2 class="gift-category-title">Para Nossa Casa</h2>
+        <div class="gift-grid-premium">
+            <div class="premium-card">
+                <img src="https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    class="card-image" alt="Café">
+                <div class="card-body">
+                    <h3>Manhãs com Café</h3>
+                    <p>Para nossas manhãs começarem sempre com o melhor aroma.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price-tag">R$ 100,00</span>
+                    <button class="btn-gift" onclick="openGiftModal('Manhãs com Café', '100,00')">Presentear</button>
+                </div>
+            </div>
+
+            <div class="premium-card">
+                <img src="https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    class="card-image" alt="Decoração">
+                <div class="card-body">
+                    <h3>Decoração do Lar</h3>
+                    <p>Pequenos detalhes que transformam nossa casa em um lar.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price-tag">R$ 200,00</span>
+                    <button class="btn-gift" onclick="openGiftModal('Decoração do Lar', '200,00')">Presentear</button>
+                </div>
+            </div>
+
+            <div class="premium-card">
+                <img src="https://images.pexels.com/photos/6633/car-old-wedding-classic.jpg?auto=compress&cs=tinysrgb&w=600"
+                    class="card-image" alt="Surpresa">
+                <div class="card-body">
+                    <h3>Presente Personalizado</h3>
+                    <p>Gostaria de contribuir com um valor livre? Escolha esta opção.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="price-tag">Valor Livre</span>
+                    <button class="btn-gift"
+                        onclick="openGiftModal('Presente Personalizado', 'Livre')">Presentear</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Endereço Section -->
+        <div class="address-box">
+            <h4>Prefere entregar um presente físico?</h4>
+            <p>Se você deseja enviar algo diretamente para nós, nosso endereço é:</p>
+            <p><strong>Rua Exemplo, 123 - Apto 45 - Bairro Central<br>Cidade, Estado - CEP 00000-000</strong></p>
+        </div>
+    </main>
+
+    <!-- Modal Pix -->
+    <div id="giftModal" class="gift-modal">
+        <div class="modal-inner">
+            <span class="close-modal" onclick="closeGiftModal()">&times;</span>
+            <h2 id="modalTitle" style="font-family: 'Marcellus', serif; margin-bottom: 5px;">Presentear</h2>
+            <p id="modalPriceLabel" style="font-weight: 700; color: var(--gift-accent); font-size: 1.2rem;"></p>
+
+            <div class="qr-placeholder" id="modalQrWrapper">
+                <img id="modalQrImg" src="" alt="QR Code Pix" style="width: 100%; height:100%;">
+            </div>
+
+            <p class="pix-note">Escaneie o QR Code acima ou copie a chave Pix abaixo:</p>
+
+            <div class="pix-key-wrapper">
+                <span class="pix-key-text" id="pixKey">seuemail@exemplo.com</span>
+                <button class="btn-copy" id="btnCopy" onclick="copyPixKey()">Copiar Chave</button>
+            </div>
+
+            <p class="pix-note" style="margin-top: 20px; font-style: italic;">
+                💡 <strong>Dica:</strong> Você pode parcelar este Pix! No app do seu banco, escolha a opção de pagar com
+                cartão de crédito ao realizar o Pix.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const PIX_KEY = "seuemail@exemplo.com";
+
+        function openGiftModal(item, price) {
+            const modal = document.getElementById('giftModal');
+            const title = document.getElementById('modalTitle');
+            const priceLabel = document.getElementById('modalPriceLabel');
+            const qrImg = document.getElementById('modalQrImg');
+
+            title.innerText = "Presentear: " + item;
+            priceLabel.innerText = price === 'Livre' ? "Qualquer valor é bem-vindo!" : "R$ " + price;
+
+            // Gerar QR Code Mockup (usando uma API real de QR Code)
+            const qrData = `Item: ${item} | Valor: ${price} | Chave: ${PIX_KEY}`;
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGiftModal() {
+            const modal = document.getElementById('giftModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function copyPixKey() {
+            const btn = document.getElementById('btnCopy');
+            navigator.clipboard.writeText(PIX_KEY).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "Copiado!";
+                btn.style.background = "#4ade80";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "";
+                }, 2000);
+            });
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function (event) {
+            const modal = document.getElementById('giftModal');
+            if (event.target == modal) {
+                closeGiftModal();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

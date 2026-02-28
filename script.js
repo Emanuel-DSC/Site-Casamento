@@ -177,32 +177,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// ===========================
-// Gift Modal Functions
-// ===========================
-function abrirModal(item, valor) {
-    const modal = document.getElementById('modalPix');
-    const modalTitulo = document.getElementById('modalTitulo');
-    const modalValor = document.getElementById('modalValor');
-    const modalQrCode = document.getElementById('modalQrCode');
 
-    if (modal && modalTitulo && modalValor && modalQrCode) {
-        modalTitulo.innerText = "Presentear: " + item;
-        modalValor.innerText = "R$ " + valor;
-
-        // Update QR Code
-        const pixData = `Chave: seuemail@exemplo.com | Item: ${item} | Valor: ${valor}`;
-        modalQrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(pixData)}`;
-
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function fecharModal() {
-    const modal = document.getElementById('modalPix');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-}
