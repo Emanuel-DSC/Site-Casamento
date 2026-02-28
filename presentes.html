@@ -131,7 +131,8 @@
         .btn-gift {
             background: var(--gift-accent);
             /* Destaque Máximo */
-            color: #000000;
+            color: #ffffff;
+            /* Texto branco em botão azul */
             padding: 10px 20px;
             border-radius: 50px;
             font-size: 0.85rem;
@@ -300,20 +301,35 @@
 
 <body>
 
-    <a href="index.html" class="back-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        Voltar ao Site
-    </a>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="diagrama_casamento_branco.svg" alt="Logo" class="logo-image" id="logoImage">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#hero">HOME</a></li>
+                <li><a href="index.html#story">NOSSA HISTÓRIA</a></li>
+                <li><a href="index.html#details">DETALHES</a></li>
+                <li><a href="index.html#gallery">GALERIA</a></li>
+                <li><a href="index.html#faqs">FAQ</a></li>
+                <li><a href="index.html#contact">RSVP</a></li>
+            </ul>
+            <button class="nav-cta" onclick="window.location.href='presentes.html'">
+                PRESENTES
+            </button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
     <header class="gift-page-hero">
         <div class="container">
             <span class="section-tag">Presentes</span>
-            <h1 class="hero-title-large" style="color: var(--text-primary);">Lista de <span
-                    class="gradient-text">Presentes</span></h1>
+            <h1 class="hero-title-large" style="color: var(--text-primary);">Lista de Presentes</h1>
         </div>
     </header>
 
@@ -447,6 +463,50 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-text">Emanuel & <span class="accent">Marina</span></span>
+                    </div>
+                    <p>Celebrando o amor e a união em 20 de Abril de 2024. Obrigado por fazer parte da nossa história.
+                    </p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html#hero">Home</a></li>
+                        <li><a href="index.html#story">História</a></li>
+                        <li><a href="index.html#details">Detalhes</a></li>
+                        <li><a href="index.html#contact">RSVP</a></li>
+                        <li><a href="presentes.html">Presentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Atalhos</h4>
+                    <ul>
+                        <li><a href="index.html#gallery">Galeria</a></li>
+                        <li><a href="index.html#faqs">Perguntas</a></li>
+                        <li><a href="presentes.html">Lista Pix</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Informações</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Emanuel & Marina. Todos os direitos reservados.</p>
+                <p>Feito com <span class="accent">♥</span></p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         const PIX_KEY = "seuemail@exemplo.com";
 
@@ -494,6 +554,7 @@
             }
         }
     </script>
+    <script src="script.js"></script>
 
 </body>
 
